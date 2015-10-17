@@ -1,5 +1,4 @@
 import pytest
-from mock import Mock
 from minimum_edit_distance import minimum_edit_distance
 from levenshtein_cost_calculator import LevenshteinCostCalculator
 
