@@ -1,5 +1,4 @@
 import pytest
-import random
 from phonetic_cost_calculator import PhoneticCostCalculator
 
 
