@@ -39,7 +39,7 @@ class PhoneticCostCalculator:
         substitution cost.
         :param phone1: the phone to be substituted
         :param phone2: the phone to substitute with
-        :return: 0 if the phones are the same, 1 if the phones are alike, and 2 if the phones are different
+        :return: 0 if the phones are the same, an intermediate cost if they are alike, and 2 if they are different
         """
         if phone1 == phone2:
             return 0
