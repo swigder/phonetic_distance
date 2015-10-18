@@ -1,8 +1,8 @@
 from nltk.corpus import cmudict
 
 from phonetic_distance.minimum_phonetic_distance_calculator import MinimumPhoneticDistanceCalculator
-from cmu_dict_phonetic_dictionary import CmuDictPhoneticDictionary
-from phonetic_cost_calculator import PhoneticCostCalculator
+from phonetic_distance.cmu_dict_phonetic_dictionary import CmuDictPhoneticDictionary
+from phonetic_distance.phonetic_cost_calculator import PhoneticCostCalculator
 
 
 class TestMinimumPhoneticDistance:
