@@ -25,15 +25,15 @@ class TestPhoneticCostCalculator:
         for phone in self.phones:
             assert self.calculator.substitution_cost(phone, phone) == 0
 
-    def test_returns_substitution_cost_of_one_for_similar_phones(self):
-        assert self.calculator.substitution_cost('AA', 'EH') == 1
-        assert self.calculator.substitution_cost('ER', 'AXR') == 1
-        assert self.calculator.substitution_cost('T', 'G') == 1
-        assert self.calculator.substitution_cost('CH', 'ZH') == 1
-        assert self.calculator.substitution_cost('V', 'DH') == 1
-        assert self.calculator.substitution_cost('N', 'NG') == 1
-        assert self.calculator.substitution_cost('L', 'R') == 1
-        assert self.calculator.substitution_cost('W', 'Q') == 1
+    def test_returns_substitution_cost_of_one_half_for_similar_phones(self):
+        assert self.calculator.substitution_cost('AA', 'EH') == .5
+        assert self.calculator.substitution_cost('ER', 'AXR') == .5
+        assert self.calculator.substitution_cost('T', 'G') == .5
+        assert self.calculator.substitution_cost('CH', 'ZH') == .5
+        assert self.calculator.substitution_cost('V', 'DH') == .5
+        assert self.calculator.substitution_cost('N', 'NG') == .5
+        assert self.calculator.substitution_cost('L', 'R') == .5
+        assert self.calculator.substitution_cost('W', 'Q') == .5
 
     def test_returns_substitution_cost_of_two_for_dissimilar_phones(self):
         assert self.calculator.substitution_cost('AH', 'G') == 2
