@@ -1,5 +1,4 @@
-import pytest
-from phonetic_cost_calculator import PhoneticCostCalculator
+from phonetic_distance.phonetic_cost_calculator import PhoneticCostCalculator
 
 
 class TestPhoneticCostCalculator:

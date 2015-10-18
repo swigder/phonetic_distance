@@ -1,5 +1,4 @@
-import pytest
-from cmu_dict_phonetic_dictionary import CmuDictPhoneticDictionary
+from phonetic_distance.cmu_dict_phonetic_dictionary import CmuDictPhoneticDictionary
 
 
 class TestCmuDictPhoneticDictionary:

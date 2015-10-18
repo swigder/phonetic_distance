@@ -1,5 +1,6 @@
 import sys
-from minimum_edit_distance import minimum_edit_distance
+
+from phonetic_distance.minimum_edit_distance import minimum_edit_distance
 from phonetic_cost_calculator import PhoneticCostCalculator
 
 

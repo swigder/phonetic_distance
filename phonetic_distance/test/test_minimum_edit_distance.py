@@ -1,6 +1,5 @@
-import pytest
-from minimum_edit_distance import minimum_edit_distance
-from levenshtein_cost_calculator import LevenshteinCostCalculator
+from phonetic_distance.minimum_edit_distance import minimum_edit_distance
+from phonetic_distance.levenshtein_cost_calculator import LevenshteinCostCalculator
 
 
 class TestMinimumEditDistance:
