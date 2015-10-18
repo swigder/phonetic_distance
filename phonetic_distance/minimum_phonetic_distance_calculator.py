@@ -1,7 +1,6 @@
 import sys
 
 from phonetic_distance.minimum_edit_distance import minimum_edit_distance
-from phonetic_cost_calculator import PhoneticCostCalculator
 
 
 class MinimumPhoneticDistanceCalculator:
@@ -33,11 +32,12 @@ class MinimumPhoneticDistanceCalculator:
         source_pronunciations = self.phonetic_dictionary.get_pronunciation(source)
 
         minimum_distance = sys.maxsize
-        phonetic_calculator = PhoneticCostCalculator()
 
         for source_pronunciation in source_pronunciations:
             for target_pronunciation in target_pronunciations:
-                distance = minimum_edit_distance(target_pronunciation, source_pronunciation, phonetic_calculator)
+                distance = minimum_edit_distance(target_pronunciation, 
+                                                 source_pronunciation,
+                                                 self.phonetic_cost_calculator)
                 if distance < minimum_distance:
                     minimum_distance = distance
         return minimum_distance

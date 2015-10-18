@@ -16,6 +16,9 @@ def binary_search(items, item, comparator, lo=0, hi=None):
         comparison = comparator(item, items[mid])
         if comparison == 0:
             return mid
-        lo = mid+1 if comparison == 1 else hi = mid
+        elif comparison == 1:
+            lo = mid+1
+        else:
+            hi = mid
 
     return -1
