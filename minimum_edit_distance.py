@@ -29,7 +29,4 @@ def minimum_edit_distance(target, source, cost_calculator):
             deletion_cost = distance_matrix[i][j-1] + cost_calculator.deletion_cost(source[j-1])
             distance_matrix[i][j] = min(insertion_cost, substitution_cost, deletion_cost)
 
-    print()
-    print(distance_matrix)
-
     return distance_matrix[len_target][len_source]

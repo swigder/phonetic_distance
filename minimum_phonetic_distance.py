@@ -17,3 +17,20 @@ def minimum_phonetic_distance(target, source):
             if distance < minimum_distance:
                 minimum_distance = distance
     return minimum_distance
+
+
+def closest_word(target, sources):
+    minimum_distance = sys.maxsize
+    closest = ''
+
+    for source in sources:
+        distance = minimum_phonetic_distance(target, source)
+        print(source, distance)
+        if distance < minimum_distance:
+            minimum_distance = distance
+            closest = source
+
+    return closest
+
+if __name__ == '__main__':
+    minimum_phonetic_distance("KRYPTON", "ABDICATE")
