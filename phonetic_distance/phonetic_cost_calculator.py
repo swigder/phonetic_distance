@@ -47,7 +47,7 @@ class PhoneticCostCalculator:
             phone1_of_type = phone1 in phone_type
             phone2_of_type = phone2 in phone_type
             if phone1_of_type and phone2_of_type:
-                return .5
+                return .75
             if phone1_of_type or phone2_of_type:
                 return 2
         raise Exception('Invalid phones provided.', phone1, phone2)

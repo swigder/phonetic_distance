@@ -35,29 +35,31 @@ class MinimumPhoneticDistanceCalculator:
 
         for source_pronunciation in source_pronunciations:
             for target_pronunciation in target_pronunciations:
-                distance = minimum_edit_distance(target_pronunciation, 
+                distance = minimum_edit_distance(target_pronunciation,
                                                  source_pronunciation,
                                                  self.phonetic_cost_calculator)
                 if distance < minimum_distance:
                     minimum_distance = distance
         return minimum_distance
 
-    def closest_word(self, target, sources):
+    def closest_words(self, target, sources):
         """
         Provides the source word that is closest to the target word out of a list of source words.  For each source
         word, the pronunciation closest to the target word will be considered.
         :param target: the word for which to find the closest match
         :param sources: a list of candidate words from which to find the closest match
-        :return: word of sources with a pronunciation closest to target
+        :return: list of words of sources with a pronunciation closest to target
         """
         minimum_distance = sys.maxsize
-        closest = ''
+        closest = []
 
         for source in sources:
             distance = self.minimum_phonetic_distance(target, source)
             print(source, distance)
             if distance < minimum_distance:
                 minimum_distance = distance
-                closest = source
+                closest = [source]
+            elif distance == minimum_distance:
+                closest.append(source)
 
         return closest
