@@ -1,12 +1,14 @@
 import pytest
-from cmu_dict_phonetic_dictionary import get_pronunciation
+from cmu_dict_phonetic_dictionary import CmuDictPhoneticDictionary
 
 
 class TestCmuDictPhoneticDictionary:
 
+    dictionary = CmuDictPhoneticDictionary()
+
     def test_get_pronunciation(self):
-        assert get_pronunciation("monetary") == [['M', 'AA', 'N', 'AH', 'T', 'EH', 'R', 'IY']]
+        assert self.dictionary.get_pronunciation("monetary") == [['M', 'AA', 'N', 'AH', 'T', 'EH', 'R', 'IY']]
 
     def test_get_pronunciation_upper(self):
-        assert get_pronunciation("MONETARY") == [['M', 'AA', 'N', 'AH', 'T', 'EH', 'R', 'IY']]
+        assert self.dictionary.get_pronunciation("MONETARY") == [['M', 'AA', 'N', 'AH', 'T', 'EH', 'R', 'IY']]
 
