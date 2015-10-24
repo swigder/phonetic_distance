@@ -13,7 +13,15 @@ Various metrics are phone edit-cost are provided.  The default gives an edit cos
 
 
 ## Prerequisites and required libraries
-This package uses numpy, nltk, and pytest.  It assumes that the NLTK CMUDict corpus has been installed.  For more information, see http://www.nltk.org/data.html.
+This package requires python3 to run, uses numpy, nltk, and pytest.  It assumes that the NLTK CMUDict corpus has been installed.  For more information, see http://www.nltk.org/data.html.
+
+
+## How to run
+There are several programs that can be run:
+* minimum_phonetic_distance:  Get the phonetic distance between two words.  Run `python3 phonetic_distance.py minimum_phonetic_distance target source`, for example, `python3 phonetic_distance.py minimum_phonetic_distance MONETARY MONOTONE`.
+* closest_word:  Get the words in a set of words with the smallest phonetic distance to a given target word.  There are two ways to run this program:
+    * find the closest source word from a given list of words:  `python3 phonetic_distance.py closest_word target [sources [sources ...]]`, for example, `python3 phonetic_distance.py closest_word MONETARY MONOTONE COMMENTARY`.
+    * find the closest source word in the dictionary that starts with a given letter:  `python3 phonetic_distance.py closest_word [-h] [-fl [FIRST_LETTER]] target`, for example, `python3 phonetic_distance.py closest_word KRYPTON --first_letter c`.
 
 
 ## Included files
