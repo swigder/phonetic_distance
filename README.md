@@ -22,12 +22,14 @@ There are several programs that can be run:
 * closest_word:  Get the words in a set of words with the smallest phonetic distance to a given target word.  There are two ways to run this program:
     * find the closest source word from a given list of words:  `python3 phonetic_distance.py closest_word target [sources [sources ...]]`, for example, `python3 phonetic_distance.py closest_word MONETARY MONOTONE COMMENTARY`.
     * find the closest source word in the dictionary that starts with a given letter:  `python3 phonetic_distance.py closest_word [-h] [-fl [FIRST_LETTER]] target`, for example, `python3 phonetic_distance.py closest_word KRYPTON --first_letter c`.
+For each program, the optional parameter `-sc --similar_phone_substitution_cost` may be provided, which will override the default cost for similar phone substitutions.  If not provided, the default cost of 1 will be used.
 
 
 ## Included files
 * cmu_dict_phonetic_dictionary.py: Facade over the NLTK CMUDict that stores the dictionary in memory for better performance.
 * minimum_edit_distance.py: Implementation of the minimum edit distance algorithm using dynamic programming.
 * levenshtein_cost_calculator.py: Cost calculator for edit distance using Levenshtein values, for testing the minimum edit distance code.
-* minimum_phonetic_distance_calculator: Minimum phonetic distance calculator using the minimum edit distance, provided phonetic dictionary, and provided phonetic cost calculator.
-* phonetic_cost_calculator: Cost calculator for cost of addition, deletion, and substitution of phones, as described above.
+* minimum_phonetic_distance_calculator.py: Minimum phonetic distance calculator using the minimum edit distance, provided phonetic dictionary, and provided phonetic cost calculator.
+* phonetic_cost_calculator.py: Cost calculator for cost of addition, deletion, and substitution of phones, as described above.
+* phonetic_distance.py: Command line interface for the above code.
 * test/*.py: Test files for the above code. 
