@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 
 from nltk.corpus import cmudict
@@ -42,15 +44,16 @@ def closest_word_wrapper(target, sources, first_letter, similar_phone_substituti
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Minimum Phonetic Dictionary.')
 
-    subparsers = parser.add_subparsers(help='sub-command help')
+    subparsers = parser.add_subparsers()
 
     parser_minimum_phonetic_distance = subparsers.add_parser('minimum_phonetic_distance',
-                                                             help='minimum_phonetic_distance help')
+                                                             help='get the phonetic distance between two words')
     parser_minimum_phonetic_distance.add_argument('target', type=str, help='target word')
     parser_minimum_phonetic_distance.add_argument('source', type=str, help='source word')
     parser_minimum_phonetic_distance.set_defaults(func=minimum_phonetic_distance)
 
-    parser_closest_word = subparsers.add_parser('closest_word', help='closest_word help')
+    parser_closest_word = subparsers.add_parser('closest_word',
+                                                help='get the word with the closest distance to a target word')
     parser_closest_word.add_argument('target', type=str, help='target word')
     parser_closest_word.add_argument('sources', type=str, nargs='*', help='source words')
     parser_closest_word.add_argument('-fl', '--first_letter', type=str, nargs='?')
