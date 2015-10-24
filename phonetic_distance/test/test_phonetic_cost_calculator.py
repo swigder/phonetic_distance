@@ -3,7 +3,8 @@ from phonetic_distance.phonetic_cost_calculator import PhoneticCostCalculator
 
 class TestPhoneticCostCalculator:
 
-    calculator = PhoneticCostCalculator()
+    similar_substitution_cost = 1
+    calculator = PhoneticCostCalculator(similar_substitution_cost)
     phones = ['AA', 'AE', 'AH', 'AO', 'AW', 'AY', 'EH', 'EY', 'IH', 'IY', 'OW', 'OY', 'UH', 'UW',
               'ER', 'AXR',
               'P', 'B', 'T', 'D', 'K', 'G',
@@ -26,14 +27,14 @@ class TestPhoneticCostCalculator:
             assert self.calculator.substitution_cost(phone, phone) == 0
 
     def test_returns_substitution_cost_of_intermediate_value_for_similar_phones(self):
-        assert self.calculator.substitution_cost('AA', 'EH') == .75
-        assert self.calculator.substitution_cost('ER', 'AXR') == .75
-        assert self.calculator.substitution_cost('T', 'G') == .75
-        assert self.calculator.substitution_cost('CH', 'ZH') == .75
-        assert self.calculator.substitution_cost('V', 'DH') == .75
-        assert self.calculator.substitution_cost('N', 'NG') == .75
-        assert self.calculator.substitution_cost('L', 'R') == .75
-        assert self.calculator.substitution_cost('W', 'Q') == .75
+        assert self.calculator.substitution_cost('AA', 'EH') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('ER', 'AXR') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('T', 'G') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('CH', 'ZH') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('V', 'DH') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('N', 'NG') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('L', 'R') == self.similar_substitution_cost
+        assert self.calculator.substitution_cost('W', 'Q') == self.similar_substitution_cost
 
     def test_returns_substitution_cost_of_two_for_dissimilar_phones(self):
         assert self.calculator.substitution_cost('AH', 'G') == 2

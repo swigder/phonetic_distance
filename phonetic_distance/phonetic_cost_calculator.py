@@ -17,6 +17,12 @@ class PhoneticCostCalculator:
 
     phone_types = [vowels, r_colored_vowels, stops, affrictaves, frictaves, nasals, liquids, semivowels]
 
+    def __init__(self, similar_substitution_cost = 1):
+        """
+        :param similar_substitution_cost: the cost of substituting similar phones
+        """
+        self.similar_substitution_cost = similar_substitution_cost
+
     def insertion_cost(self, phone):
         """
         Returns cost of inserting a given phone
@@ -47,7 +53,7 @@ class PhoneticCostCalculator:
             phone1_of_type = phone1 in phone_type
             phone2_of_type = phone2 in phone_type
             if phone1_of_type and phone2_of_type:
-                return .75
+                return self.similar_substitution_cost
             if phone1_of_type or phone2_of_type:
                 return 2
         raise Exception('Invalid phones provided.', phone1, phone2)

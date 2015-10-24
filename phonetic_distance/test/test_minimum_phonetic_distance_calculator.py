@@ -8,7 +8,7 @@ from phonetic_distance.utilities import binary_search
 
 class TestMinimumPhoneticDistance:
 
-    calculator = MinimumPhoneticDistanceCalculator(CmuDictPhoneticDictionary(), PhoneticCostCalculator())
+    calculator = MinimumPhoneticDistanceCalculator(CmuDictPhoneticDictionary(), PhoneticCostCalculator(.75))
 
     def test_minimum_phonetic_distance(self):
         assert self.calculator.minimum_phonetic_distance("MONETARY", "MONOTONE") == 3.75
